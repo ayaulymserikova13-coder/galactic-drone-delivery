@@ -1,11 +1,11 @@
 package edu.narxoz.galactic.bodies;
 
-public class CelestialBody {
+public abstract class CelestialBody {
     private String name;
     private double x;
     private double y;
 
-    public CelestialBody(String name, double x, double y) {
+    protected CelestialBody(String name, double x, double y) {
         this.name = name;
         this.x = x;
         this.y = y;
@@ -21,5 +21,14 @@ public class CelestialBody {
 
     public double getY() {
         return y;
+    }
+
+    public double distanceTo(CelestialBody other) {
+        if (other == null) {
+            throw new IllegalArgumentException("other cannot be null");
+        }
+        double dx = other.x - x;
+        double dy = other.y - y;
+        return Math.sqrt(dx * dx + dy * dy);
     }
 }
