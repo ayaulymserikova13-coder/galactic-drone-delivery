@@ -5,7 +5,7 @@ public class SpaceStation extends CelestialBody {
 
     public SpaceStation(String name, double x, double y, int level) {
         super(name, x, y);
-        this.level = level;
+        this.level=level;
     }
 
     public int getLevel() {

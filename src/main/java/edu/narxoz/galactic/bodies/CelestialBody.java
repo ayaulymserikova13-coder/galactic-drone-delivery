@@ -6,9 +6,9 @@ public abstract class CelestialBody {
     private double y;
 
     protected CelestialBody(String name, double x, double y) {
-        this.name = name;
-        this.x = x;
-        this.y = y;
+        this.name=name;
+        this.x=x;
+        this.y=y;
     }
 
     public String getName() {
@@ -24,11 +24,11 @@ public abstract class CelestialBody {
     }
 
     public double distanceTo(CelestialBody other) {
-        if (other == null) {
+        if (other==null) {
             throw new IllegalArgumentException("other cannot be null");
         }
-        double dx = other.x - x;
-        double dy = other.y - y;
-        return Math.sqrt(dx * dx + dy * dy);
+        double dx=other.x-x;
+        double dy=other.y-y;
+        return Math.sqrt(dx*dx+dy*dy);
     }
 }

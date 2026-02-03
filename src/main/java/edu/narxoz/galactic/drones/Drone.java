@@ -1,20 +1,17 @@
 package edu.narxoz.galactic.drones;
 
 public abstract class Drone {
-
     private String id;
     private DroneStatus status;
     private double maxPayloadKg;
 
     protected Drone(String id, double maxPayloadKg) {
-
-        if (maxPayloadKg <= 0) {
+        if (maxPayloadKg<=0) {
             throw new IllegalArgumentException();
         }
-
-        this.id = id;
-        this.maxPayloadKg = maxPayloadKg;
-        this.status = DroneStatus.IDLE;
+        this.id=id;
+        this.maxPayloadKg=maxPayloadKg;
+        this.status=DroneStatus.IDLE;
     }
 
     public String getId() {
@@ -29,9 +26,8 @@ public abstract class Drone {
         return maxPayloadKg;
     }
 
-    // Делаем public чтобы Dispatcher мог менять статус
     public void setStatus(DroneStatus status) {
-        this.status = status;
+        this.status=status;
     }
 
     public abstract double speedKmPerMin();

@@ -5,7 +5,6 @@ import edu.narxoz.galactic.cargo.Cargo;
 import edu.narxoz.galactic.drones.Drone;
 
 public class DeliveryTask {
-
     private CelestialBody origin;
     private CelestialBody destination;
     private Cargo cargo;
@@ -13,11 +12,11 @@ public class DeliveryTask {
     private Drone assignedDrone;
 
     public DeliveryTask(CelestialBody origin, CelestialBody destination, Cargo cargo) {
-        this.origin = origin;
-        this.destination = destination;
-        this.cargo = cargo;
-        this.state = TaskState.CREATED;
-        this.assignedDrone = null;
+        this.origin=origin;
+        this.destination=destination;
+        this.cargo=cargo;
+        this.state= TaskState.CREATED;
+        this.assignedDrone=null;
     }
 
     public CelestialBody getOrigin() {
@@ -40,28 +39,22 @@ public class DeliveryTask {
         return assignedDrone;
     }
 
-    // Dispatcher будет менять состояние
     public void setState(TaskState state) {
         this.state = state;
     }
 
-    // Dispatcher будет назначать дрон
     public void setAssignedDrone(Drone drone) {
         this.assignedDrone = drone;
     }
 
     public double estimateTime() {
-
         if (assignedDrone == null) {
             throw new IllegalStateException("assignedDrone is null");
         }
-
-        double speed = assignedDrone.speedKmPerMin();
-
-        if (speed <= 0) {
+        double speed=assignedDrone.speedKmPerMin();
+        if (speed<=0) {
             throw new IllegalStateException("invalid drone speed");
         }
-
         return origin.distanceTo(destination) / speed;
     }
 }
